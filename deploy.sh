@@ -10,5 +10,5 @@ dotfilesdir="$(dirname $0)"
 
 shopt -s extglob
 for f in !($(basename $0)); do
-    ln -s $PWD/$f ~/.$f
+    ln -sn $PWD/$f ~/.$f
 done
