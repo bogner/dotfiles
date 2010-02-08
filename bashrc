@@ -5,19 +5,26 @@
 shell="$(ps -p $$ -o comm | sed '1d; s/^-//; s/ *$//')"
 
 prepend_path () {
-  old_ifs="$IFS"
-  IFS=:
-  while [ -n "$1" ]; do
-    for path in $PATH; do
-      [ "$path" = "$1" ] && shift && continue 2;
+    if [ "$1" = -a ] || [ "$1" = --append ]; then
+        append=true
+        shift
+    fi
+    old_ifs="$IFS"
+    IFS=:
+    while [ -n "$1" ]; do
+        for path in $PATH; do
+            [ "$path" = "$1" ] && shift && continue 2;
+        done;
+        if [ "$append" = true ]; then
+            PATH="$PATH:$1"
+        else
+            PATH="$1:$PATH"
+        fi
     done;
-    PATH="$1:$PATH"
-  done;
-  IFS="$old_ifs"
+    IFS="$old_ifs"
 }
 
 prepend_path $HOME/local/bin $HOME/scripts
-
 
 # Only continue if we're interactively running bash
 [ -z "$PS1" ] || [ "$shell" != "bash" ] && return
@@ -64,15 +71,16 @@ __shorten () {
     echo $result
 }
 
+_err='$(rc=$?; [ $rc -ne 0 ] && echo '"'$c_red'"'[$rc])'
 _user="${c_user}\u"
 _host="${c_host}@\h"
 _jobs="${c_yellow}"'$(__jobcount)'
 _cwd='$([ -w "$PWD" ]'" && echo '$c_blue' || echo '$c_red')"'$(__shorten \w)'
 _prompt=" ${c_blue}"'\$'" ${c_nc}"
 
-PS1="${_user}${_host}${_jobs}${_cwd}${_prompt}"
+PS1="${_err}${_user}${_host}${_jobs}${_cwd}${_prompt}"
 
-unset c_yellow c_green c_brightgreen c_blue c_red c_nc _user _host _cwd _prompt
+unset c_yellow c_green c_blue c_red c_nc _err _user _host _cwd _prompt
 
 # Change the window title of X terminals
 case $TERM in
@@ -95,6 +103,7 @@ fi
 # readline behaviour
 bind "set bell-style none"
 bind "set show-all-if-unmodified on"
+bind "set mark-symlinked-directories on"
 bind "set visible-stats on"
 
 if which dircolors >/dev/null; then
@@ -118,17 +127,20 @@ alias psu="ps -U $USER"
 alias enscript="enscript -2rE"
 alias lpr="lpr -h"
 alias vncviewer='vncviewer -shared'
+alias et="emacsclient -t"
+alias ec="emacsclient -c"
 
 export EDITOR="emacsclient -t -a emacs"
 export VISUAL=$EDITOR
 export PAGER="less"
 export LESS="-FRX"
 
-# some machines lack rxvt-unicode in their terminfo db, so we bring
-# our own db
-[ -d ~/.terminfo ] && export TERMINFO=~/.terminfo
-# similarly, some boxes have archaic programs which still use termcap
-export TERMCAP=$(infocmp -C 2>/dev/null | sed '/^#/d')
+# if the right terminfo isn't installed, remove qualifiers until we
+# find one that is.
+while [[ "$TERM" == *-* ]]; do
+    tput cols >/dev/null 2>&1
+    [ $? -eq 3 ] && export TERM=${TERM%-*} || break
+done
 
 # we want to know our fortune
 which fortune 2>/dev/null >/dev/null && fortune

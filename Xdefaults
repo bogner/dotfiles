@@ -1,0 +1,50 @@
+!! Fonts
+Rxvt.font: xft:DejaVu Sans Mono-9
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceNameDoublesize: AR PL UMing CN
+XTerm*faceSize: 9
+XTerm*font: -misc-fixed-medium-r-*-*-*-120-*-*-*-*-iso10646-1
+
+Emacs.FontBackend: xft
+
+!! Terminal Colors
+! term colors are ordered black, red, green, yellow, blue, magenta,
+! cyan, white, and then bright versions in the same order.
+*vt100.background: #3f3f3f
+*vt100.foreground: #dcdccc
+*vt100.color0:     #3f3f3f
+*vt100.color1:     #bc8383
+*vt100.color2:     #7f9f7f
+*vt100.color3:     #e0cf9f
+*vt100.color4:     #94bff3
+*vt100.color5:     #cc6ca3
+*vt100.color6:     #73e0c3
+*vt100.color7:     #dcdccc
+*vt100.color8:     #5f5f5f
+*vt100.color9:     #cc9393
+*vt100.color10:    #8fb28f
+*vt100.color11:    #f0dfaf
+*vt100.color12:    #8cc0ff
+*vt100.color13:    #dc8cc3
+*vt100.color14:    #83f0d3
+*vt100.color15:    #fcfcec
+
+!! Other
+! meta key needs eightBitInput: false
+XTerm*vt100.eightBitInput: false
+XTerm.ttyModes: stop ^- start ^-
+XTerm.termName: xterm-256color
+
+Rxvt*scrollBar: False
+Rxvt*internalBorder: 0
+
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: xdg-open
+URxvt.matcher.button: C-1
+URxvt.matcher.rend.0: Italic
+URxvt.matcher.rend.1: -ULine
+! We match absolute paths (in addition to urls)
+URxvt.matcher.pattern.1: (^|[\\s>|])((~|/)[\\w-./]+)
+
+yeahconsole*toggleKey: Win+c
+yeahconsole*restart: 1

@@ -1,0 +1,18 @@
+# -*- mode: conf; tab-stop-list: (4 8 12 16 20 24 28 32 36 40) -*-
+[user]
+    name = Justin Bogner
+    email = mail@justinbogner.com
+[color]
+    ui = auto
+[diff]
+    renames = copy
+[pack]
+    compression = 9
+[push]
+    default = tracking
+[alias]
+    difftool = !sh -c 'git diff -U99 "$@" | kompare -o -' git-difftool
+[web]
+    browser = x-www-browser
+[browser "x-www-browser"]
+    cmd = x-www-browser

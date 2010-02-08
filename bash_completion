@@ -1,0 +1,2 @@
+[ -r ~/scripts/scripts_completion ] && \
+    . ~/scripts/scripts_completion

@@ -1,0 +1,12 @@
+#!/bin/bash
+# extra filters for lesspipe
+
+if [ -d "$1" ]; then
+    color=""
+    getopt R "$LESS" 2>/dev/null | grep -F " -R " >/dev/null && \
+        color="--color=always"
+    ls -alF $color -- "$1"
+    exit 0
+fi
+
+exit 1
