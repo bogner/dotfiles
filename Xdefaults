@@ -30,8 +30,9 @@ Emacs.FontBackend: xft
 *vt100.color15:    #fcfcec
 
 !! Other
-! meta key needs eightBitInput: false
+! meta key needs eightBitInput: false and/or metaSendsEscape: true
 XTerm*vt100.eightBitInput: false
+XTerm*vt100.metaSendsEscape: true
 XTerm.ttyModes: stop ^- start ^-
 XTerm.termName: xterm-256color
 
