@@ -6,6 +6,8 @@
     ui = auto
 [diff]
     renames = copy
+[merge]
+    conflictstyle = diff3
 [pack]
     compression = 9
 [push]
