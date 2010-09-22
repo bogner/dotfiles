@@ -12,9 +12,9 @@
     compression = 9
 [push]
     default = tracking
-[alias]
-    difftool = !sh -c 'git diff -U99 "$@" | kompare -o -' git-difftool
 [web]
     browser = x-www-browser
 [browser "x-www-browser"]
     cmd = x-www-browser
+[alias]
+    difftool = !sh -c 'git diff -U99 "$@" | kompare -o -' git-difftool
