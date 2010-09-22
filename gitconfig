@@ -12,6 +12,8 @@
     compression = 9
 [push]
     default = tracking
+[rerere]
+    enabled = 1
 [web]
     browser = x-www-browser
 [browser "x-www-browser"]
