@@ -19,4 +19,5 @@
 [browser "x-www-browser"]
     cmd = x-www-browser
 [alias]
+    current-branch = !git branch | awk '/\\*/ {print $2}'
     difftool = !sh -c 'git diff -U99 "$@" | kompare -o -' git-difftool
