@@ -144,3 +144,4 @@ done
 
 # we want to know our fortune
 which fortune 2>/dev/null >/dev/null && fortune
+true
