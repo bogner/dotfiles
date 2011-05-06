@@ -2,7 +2,7 @@
 
 ### This top part should be POSIX sh compatible, so that we can source
 ### it non-interactively and get our path
-shell="$(ps -p $$ -o comm | sed '1d; s/^-//; s/ *$//')"
+shell="$(ps -p $$ -o command | sed '1d; s/^-//; s/ .*$//')"
 
 prepend_path () {
     if [ "$1" = -a ] || [ "$1" = --append ]; then
