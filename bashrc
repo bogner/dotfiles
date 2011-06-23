@@ -67,7 +67,8 @@ __shorten () {
     local result="$@"
     [[ $result == $HOME/* ]] && result="~${result#$HOME}"
     local offset=$(( ${#result} - $max + 3 ))
-    [ $offset -gt 0 ] && result="...$(echo ${result:$offset:$max} | sed 's/[^/]*//')"
+    [ $offset -gt 0 ] && result="...${result:$offset:$max}"
+    [[ $result == ...*/* ]] && result="$(echo $result | sed 's/^[^/]*/.../')"
     echo $result
 }
 
