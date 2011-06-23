@@ -65,7 +65,7 @@ __jobcount () {
 __shorten () {
     local max=$(($COLUMNS/4))
     local result="$@"
-    [[ $result == $HOME* ]] && result="~${result#$HOME}"
+    [[ $result == $HOME/* ]] && result="~${result#$HOME}"
     local offset=$(( ${#result} - $max + 3 ))
     [ $offset -gt 0 ] && result="...$(echo ${result:$offset:$max} | sed 's/[^/]*//')"
     echo $result
