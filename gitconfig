@@ -4,6 +4,8 @@
     email = mail@justinbogner.com
 [color]
     ui = auto
+[core]
+    whitespace = cr-at-eol
 [diff]
     renames = copy
 [merge]
