@@ -86,7 +86,7 @@ unset c_yellow c_green c_blue c_red c_nc _err _user _host _cwd _prompt
 # Change the window title of X terminals
 case $TERM in
     xterm*|rxvt*)
-        PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME\//~/} ($TERM)\007"'
+        PROMPT_COMMAND='echo -ne "\033]0;$DXTERM${PWD/$HOME\//~/} ($TERM)\007"'
         ;;
     screen)
         PROMPT_COMMAND='echo -ne "\033_${PWD/$HOME\//~/} ($TERM)\033\\"'
