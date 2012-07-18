@@ -1,0 +1,4 @@
+term screen-256color
+termcapinfo xterm|xterm-256color ti@:te@
+vbell off
+bell_msg ""
