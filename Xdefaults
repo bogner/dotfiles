@@ -49,3 +49,5 @@ URxvt.matcher.pattern.1: (^|[\\s>|])((~|/)[\\w-./]+)
 
 yeahconsole*toggleKey: Win+c
 yeahconsole*restart: 1
+
+Vncviewer.passwordDialog: true
