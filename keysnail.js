@@ -155,7 +155,7 @@ key.setEditKey('C-o', function (ev) {
     command.openLine(ev);
 }, 'Open line', false);
 
-key.setEditKey([["C-x", "u"], ["C-_"]], function (ev) {
+key.setEditKey([["C-x", "u"], ["C-_"], ["C-/"]], function (ev) {
     display.echoStatusBar("Undo!", 2000);
     goDoCommand("cmd_undo");
 }, 'Undo', false);
