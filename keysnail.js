@@ -1,6 +1,6 @@
 // keys
 key.quitKey              = "C-g";
-key.helpKey              = "<f1>";
+key.helpKey              = "C-h";
 key.escapeKey            = "C-q";
 key.macroStartKey        = "<f3>";
 key.macroEndKey          = "<f4>";
@@ -51,7 +51,7 @@ key.setGlobalKey('M-:', function (ev) {
     command.interpreter();
 }, 'Command interpreter', true);
 
-key.setGlobalKey(["<f1>", "b"], function (ev) {
+key.setGlobalKey(["C-h", "b"], function (ev) {
     key.listKeyBindings();
 }, 'List all keybindings', false);
 
@@ -59,7 +59,7 @@ key.setGlobalKey('C-m', function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RETURN, true);
 }, 'Generate the return key code', false);
 
-key.setGlobalKey(["<f1>", "F"], function (ev) {
+key.setGlobalKey(["C-h", "F"], function (ev) {
     openHelpLink("firefox-help");
 }, 'Display Firefox help', false);
 
@@ -217,7 +217,7 @@ key.setEditKey('C-d', function (ev) {
     goDoCommand("cmd_deleteCharForward");
 }, 'Delete forward char', false);
 
-key.setEditKey('C-h', function (ev) {
+key.setEditKey('<backspace>', function (ev) {
     goDoCommand("cmd_deleteCharBackward");
 }, 'Delete backward char', false);
 
