@@ -350,11 +350,11 @@ key.setViewKey(':', function (ev, arg) {
     shell.input(null, arg);
 }, 'List and execute commands', true);
 
-key.setViewKey('B', function (ev) {
+key.setViewKey(['M-g', 'b'], function (ev) {
     BrowserBack();
 }, 'Back', false);
 
-key.setViewKey('F', function (ev) {
+key.setViewKey(['M-g', 'f'], function (ev) {
     BrowserForward();
 }, 'Forward', false);
 
