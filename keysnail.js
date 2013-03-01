@@ -107,11 +107,11 @@ key.setGlobalKey(["C-c", "u"], function (ev) {
     undoCloseTab();
 }, 'Undo closed tab', false);
 
-key.setGlobalKey('C-M-l', function (ev) {
+key.setGlobalKey(['C-x', 'b'], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'Select next tab', false);
 
-key.setGlobalKey('C-M-h', function (ev) {
+key.setGlobalKey(['C-x', 'B'], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'Select previous tab', false);
 
