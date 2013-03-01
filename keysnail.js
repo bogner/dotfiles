@@ -107,10 +107,6 @@ key.setGlobalKey(["C-c", "u"], function (ev) {
     undoCloseTab();
 }, 'Undo closed tab', false);
 
-key.setGlobalKey(["C-x", "n"], function (ev) {
-    OpenBrowserWindow();
-}, 'Open new window', false);
-
 key.setGlobalKey('C-M-l', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'Select next tab', false);
@@ -310,23 +306,23 @@ key.setEditKey('M-p', function (ev) {
     command.walkInputElement(command.elementsRetrieverTextarea, false, true);
 }, 'Focus to the previous text area', false);
 
-key.setViewKey([["C-n"], ["j"]], function (ev) {
+key.setViewKey(["C-n"], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_DOWN, true);
 }, 'Scroll line down', false);
 
-key.setViewKey([["C-p"], ["k"]], function (ev) {
+key.setViewKey(["C-p"], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_UP, true);
 }, 'Scroll line up', false);
 
-key.setViewKey([["C-f"], ["."]], function (ev) {
+key.setViewKey(["C-f"], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_RIGHT, true);
 }, 'Scroll right', false);
 
-key.setViewKey([["C-b"], [","]], function (ev) {
+key.setViewKey(["C-b"], function (ev) {
     key.generateKey(ev.originalTarget, KeyEvent.DOM_VK_LEFT, true);
 }, 'Scroll left', false);
 
-key.setViewKey([["M-v"], ["b"]], function (ev) {
+key.setViewKey(["M-v"], function (ev) {
     goDoCommand("cmd_scrollPageUp");
 }, 'Scroll page up', false);
 
@@ -334,29 +330,17 @@ key.setViewKey('C-v', function (ev) {
     goDoCommand("cmd_scrollPageDown");
 }, 'Scroll page down', false);
 
-key.setViewKey([["M-<"], ["g"]], function (ev) {
+key.setViewKey(["M-<"], function (ev) {
     goDoCommand("cmd_scrollTop");
 }, 'Scroll to the top of the page', true);
 
-key.setViewKey([["M->"], ["G"]], function (ev) {
+key.setViewKey(["M->"], function (ev) {
     goDoCommand("cmd_scrollBottom");
 }, 'Scroll to the bottom of the page', true);
-
-key.setViewKey('l', function (ev) {
-    getBrowser().mTabContainer.advanceSelectedTab(1, true);
-}, 'Select next tab', false);
-
-key.setViewKey('h', function (ev) {
-    getBrowser().mTabContainer.advanceSelectedTab(-1, true);
-}, 'Select previous tab', false);
 
 key.setViewKey(':', function (ev, arg) {
     shell.input(null, arg);
 }, 'List and execute commands', true);
-
-key.setViewKey('R', function (ev) {
-    BrowserReload();
-}, 'Reload the page', true);
 
 key.setViewKey('B', function (ev) {
     BrowserBack();
