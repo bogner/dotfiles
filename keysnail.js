@@ -71,15 +71,15 @@ key.setGlobalKey(["C-x", "C-v"], function (ev) {
     command.focusToById("urlbar");
 }, 'Focus to the location bar / Find alternate file', true);
 
-key.setGlobalKey(["C-x", "g"], function (ev) {
+key.setGlobalKey(["M-g", "s"], function (ev) {
     command.focusToById("searchbar");
 }, 'Focus to the search bar', true);
 
-key.setGlobalKey(["C-x", "t"], function (ev) {
+key.setGlobalKey(["M-g", "t"], function (ev) {
     command.focusElement(command.elementsRetrieverTextarea, 0);
 }, 'Focus to the first textarea', true);
 
-key.setGlobalKey(["C-x", "s"], function (ev) {
+key.setGlobalKey(["M-g", "b"], function (ev) {
     command.focusElement(command.elementsRetrieverButton, 0);
 }, 'Focus to the first button', true);
 
