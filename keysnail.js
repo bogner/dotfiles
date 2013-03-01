@@ -115,6 +115,14 @@ key.setGlobalKey(['C-x', 'B'], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'Select previous tab', false);
 
+key.setGlobalKey(['C-c', '.'], function (ev) {
+    getBrowser().mTabContainer.advanceSelectedTab(1, true);
+}, 'Select next tab', false);
+
+key.setGlobalKey(['C-c', ','], function (ev) {
+    getBrowser().mTabContainer.advanceSelectedTab(-1, true);
+}, 'Select previous tab', false);
+
 key.setGlobalKey(["C-x", "C-c"], function (ev) {
     goQuitApplication();
 }, 'Exit Firefox', true);
