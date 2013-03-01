@@ -63,9 +63,13 @@ key.setGlobalKey(["C-h", "F"], function (ev) {
     openHelpLink("firefox-help");
 }, 'Display Firefox help', false);
 
-key.setGlobalKey(["C-x", "l"], function (ev) {
+key.setGlobalKey(["C-x", "C-f"], function (ev) {
+    BrowserOpenTab();
+}, 'Open new tab / Find file', false);
+
+key.setGlobalKey(["C-x", "C-v"], function (ev) {
     command.focusToById("urlbar");
-}, 'Focus to the location bar', true);
+}, 'Focus to the location bar / Find alternate file', true);
 
 key.setGlobalKey(["C-x", "g"], function (ev) {
     command.focusToById("searchbar");
@@ -126,10 +130,6 @@ key.setGlobalKey(["C-x", "o"], function (ev, arg) {
 key.setGlobalKey(["C-x", "1"], function (ev) {
     window.loadURI(ev.target.ownerDocument.location.href);
 }, 'Show current frame only', true);
-
-key.setGlobalKey(["C-x", "C-f"], function (ev) {
-    BrowserOpenFileWindow();
-}, 'Open the local file', true);
 
 key.setGlobalKey(["C-x", "C-s"], function (ev) {
     saveDocument(window.content.document);
