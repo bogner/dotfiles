@@ -26,3 +26,4 @@
     current-branch = !git branch | awk '/\\*/ {print $2}'
     difftool = !sh -c 'git diff -U99 "$@" | kompare -o -' git-difftool
     graph = log --graph --decorate --oneline
+    ff = pull --ff-only
