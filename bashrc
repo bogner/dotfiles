@@ -85,7 +85,7 @@ unset c_yellow c_green c_blue c_red c_nc _err _user _host _cwd _prompt
 
 # Change the window title of X terminals
 case $TERM in
-    xterm*|rxvt*|screen*)
+    xterm*|rxvt*|screen*|st*)
         prompt='${WINDOW:+$WINDOW. }${PWD/$HOME\//~/} ($TERM)'
         PROMPT_COMMAND='echo -ne "\033]0;'"$prompt"'\007"'
         unset prompt
