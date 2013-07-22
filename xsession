@@ -1,9 +1,13 @@
 . $HOME/.bashrc
 xset b 0
 xrdb $HOME/.Xdefaults
-xmodmap .xmodmap
+setxkbmap -option ctrl:nocaps
 xsetroot -solid "#3f3f3f"
 
 yeahconsole &
-gnome-panel &
+xscreensaver -nosplash &
+lxpanel &
+nm-applet &
+xfce4-power-manager &
+xfce4-volumed &
 xmonad
