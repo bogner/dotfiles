@@ -51,3 +51,32 @@ yeahconsole*toggleKey: Win+c
 yeahconsole*restart: 1
 
 Vncviewer.passwordDialog: true
+
+xscreensaver.splash: false
+! font settings
+xscreensaver.Dialog.headingFont:        xft:Deja Vu Sans-9:style=bold
+xscreensaver.Dialog.bodyFont:           xft:Deja Vu Sans-9
+xscreensaver.Dialog.labelFont:          xft:Deja Vu Sans-9
+xscreensaver.Dialog.unameFont:          xft:Deja Vu Sans-9
+xscreensaver.Dialog.buttonFont:         xft:Deja Vu Sans-9:style=bold
+xscreensaver.Dialog.dateFont:           xft:Deja Vu Sans-9
+xscreensaver.passwd.passwdFont:         xft:Deja Vu Sans-9:style=bold
+! general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #dcdccc
+xscreensaver.Dialog.background:         #3f3f3f
+xscreensaver.Dialog.topShadowColor:     #3f3f3f
+xscreensaver.Dialog.bottomShadowColor:  #3f3f3f
+xscreensaver.Dialog.Button.foreground:  #dcdccc
+xscreensaver.Dialog.Button.background:  #464646
+! username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #dcdccc
+xscreensaver.Dialog.text.background:    #464646
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    2
+! timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #dcdccc
+xscreensaver.passwd.thermometer.background:  #000000
+xscreensaver.passwd.thermometer.width:       8
+! datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %Y-%m-%d %H:%M
