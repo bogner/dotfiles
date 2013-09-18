@@ -97,6 +97,8 @@ stty -ixon
 # programmable completion
 if [ -r /etc/bash_completion ]; then
     . /etc/bash_completion
+elif [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
 elif [ -r ~/.bash_completion ]; then
     . ~/.bash_completion
 fi
