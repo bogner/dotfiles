@@ -5,6 +5,7 @@
 shell="$(basename $(ps -p $$ -o command | sed '1d; s/^-//; s/ .*$//'))"
 
 prepend_path () {
+    local append newpath
     if [ "$1" = -a ] || [ "$1" = --append ]; then
         append=true
         shift
@@ -12,14 +13,14 @@ prepend_path () {
     old_ifs="$IFS"
     IFS=:
     while [ -n "$1" ]; do
+        [ "$append" != true ] && newpath="$1:"
         for path in $PATH; do
-            [ "$path" = "$1" ] && shift && continue 2;
-        done;
-        if [ "$append" = true ]; then
-            PATH="$PATH:$1"
-        else
-            PATH="$1:$PATH"
-        fi
+            [ "$path" = "$1" ] && continue;
+            newpath="$newpath$path:"
+        done
+        [ "$append" = true ] && newpath="$newpath$1:"
+        PATH="${newpath%:}"
+        shift
     done;
     IFS="$old_ifs"
 }
