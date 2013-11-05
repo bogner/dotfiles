@@ -38,6 +38,7 @@ export HISTCONTROL=ignoredups
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe.sh ] && eval "$(lesspipe.sh)"
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 # set a fancy prompt
 case $TERM in
@@ -57,7 +58,7 @@ esac
 [ "$SSH_CLIENT" ] && c_host=$c_green$c_bright || c_host=$c_green
 
 __jobcount () {
-    local stopped=$(jobs -s | wc -l)
+    local stopped=$(echo $(jobs -s | wc -l))
     local result=" "
     [ $stopped -gt 0 ] && result="$result($stopped) "
     echo "$result"
@@ -122,11 +123,11 @@ isgnu () {
 }
 
 # Alias definitions.
-isgnu ls && alias ls="ls --color=auto" || alias ls="ls -F"
+isgnu ls && alias ls="ls --color=auto" || alias ls="ls -G"
 alias ll="ls -l"
 alias la="ls -A"
 alias l="ls -Al"
-isgnu grep && alias grep="grep --color=auto"
+alias grep="grep --color=auto"
 alias psu="ps -U $USER"
 alias enscript="enscript -2rE"
 alias lpr="lpr -h"
