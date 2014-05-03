@@ -4,7 +4,7 @@
 setopt prompt_subst
 
 precmd () {
-    [ -w $(pwd) ] && typeset is_cwd_writeable=true
+    [ -w "$(pwd)" ] && typeset is_cwd_writeable=true
     psvar=("$SSH_CLIENT" "$is_cwd_writeable")
 }
 
