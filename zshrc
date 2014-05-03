@@ -38,9 +38,6 @@ setopt hist_ignore_dups
 autoload -U select-word-style
 select-word-style bash
 
-# Use extended globbing
-setopt extended_glob
-
 # Make directory traversal more convenient
 setopt autopushd
 setopt pushd_minus
