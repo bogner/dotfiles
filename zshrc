@@ -1,3 +1,5 @@
+# -*- Shell-script -*-
+
 # setup the prompt
 setopt prompt_subst
 
