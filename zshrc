@@ -19,13 +19,6 @@ RPROMPT='%F{8}%D{%Y-%m-%d %H:%M:%S}%f'
 unset _err _user _host _jobs _trunc _cwd _prompt
 
 # set up completion
-_add_completion_dir () {
-    [ -d "$1" ] || return 0
-    fpath+="$1"
-    autoload -U "$1"/:t
-}
-_add_completion_dir ~/scripts/completion/zsh
-
 autoload -U compinit
 compinit
 setopt complete_aliases
