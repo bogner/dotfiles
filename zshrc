@@ -26,6 +26,8 @@ compinit
 setopt complete_aliases
 setopt no_auto_menu
 zstyle ':completion:*:descriptions' format '%B%U%F{8}%d%f%b%u'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-prompt ''
 
 # configure history
 export HISTSIZE=500
