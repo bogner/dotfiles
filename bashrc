@@ -38,8 +38,8 @@ export HISTCONTROL=ignoredups
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe.sh ] && eval "$(lesspipe.sh)"
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+$(which lesspipe.sh &>/dev/null) && eval "$(lesspipe.sh)"
+$(which lesspipe &>/dev/null) && eval "$(lesspipe)"
 # set a fancy prompt
 case $TERM in
     dumb)
