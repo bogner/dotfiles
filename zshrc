@@ -44,6 +44,9 @@ select-word-style bash
 setopt autopushd
 setopt pushd_minus
 
+# disable XON/XOFF (c-s should search, not pause)
+stty -ixon
+
 # make less more friendly for non-text input
 $(which lesspipe.sh &>/dev/null) && eval "$(lesspipe.sh)"
 $(which lesspipe &>/dev/null) && eval "$(lesspipe)"
