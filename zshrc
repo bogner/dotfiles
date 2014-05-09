@@ -20,6 +20,16 @@ PROMPT2='%_%F{8}>%f '
 RPROMPT='%F{8}%D{%Y-%m-%d %H:%M:%S}%f'
 unset _err _user _host _jobs _trunc _cwd _prompt
 
+# update window titles
+chpwd() {
+    [ -t 1 ] || return
+    case $TERM in
+        xterm*|rxvt*|screen*|st*) print -Pn "\e]2;%~ ($TERM)\a";;
+    esac
+}
+# call this now, since it doesn't happen on start up
+chpwd
+
 # set up completion
 autoload -U compinit
 compinit
