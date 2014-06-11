@@ -1,14 +1,15 @@
-prepend_paths=("$HOME/local/bin" "$HOME/scripts")
-path=($prepend_paths ${path:|prepend_paths})
-unset prepend_paths
+# unique paths.
+typeset -U path fpath
 
+# Add local paths
+path=("$HOME/local/bin" "$HOME/scripts" $path)
+
+# Add local fpaths
 prepend_fpaths=(~/.zshfunctions ~/scripts/completion/zsh)
-fpath=($prepend_fpaths ${fpath:|prepend_fpaths})
-for d in "$prepend_fpaths[@]"; do
-    typeset -a fs
-    # List basenames of each file in the directory
-    fs=( "$d"/*(N:t) )
-    # Autoload any names we found
-    [ ${#fs} -eq 0 ] || autoload -U "$fs[@]"
-done
-unset prepend_fpaths
+fpath=($prepend_fpaths $fpath)
+
+# Autoload everything in prepend_fpaths
+autoload_names=(${^${prepend_fpaths}}/*(N:t))
+[ ${#autoload_names} -eq 0 ] || autoload -U "${autoload_names[@]}"
+
+unset autoload_names prepend_fpaths
