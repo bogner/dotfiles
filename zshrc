@@ -54,6 +54,9 @@ select-word-style bash
 setopt autopushd
 setopt pushd_minus
 
+# Comments are useful, enable them interactively
+setopt interactive_comments
+
 # disable XON/XOFF (c-s should search, not pause)
 stty -ixon
 
