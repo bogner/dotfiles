@@ -53,6 +53,7 @@ select-word-style bash
 # Make directory traversal more convenient
 setopt autopushd
 setopt pushd_minus
+setopt pushd_ignore_dups
 
 # Comments are useful, enable them interactively
 setopt interactive_comments
