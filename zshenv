@@ -4,6 +4,10 @@ typeset -U path fpath
 # Add local paths
 path=("$HOME/local/bin" "$HOME/scripts" $path)
 
+# If there is a local zsh-completions repo, add it to fpath
+[ -d /usr/local/share/zsh-completions ] && \
+    fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Add local fpaths
 prepend_fpaths=(~/.zshfunctions ~/scripts/completion/zsh)
 fpath=($prepend_fpaths $fpath)
