@@ -69,6 +69,7 @@ $(which lesspipe &>/dev/null) && eval "$(lesspipe)"
 if which dircolors >/dev/null; then
     [ -e ~/.dir_colors ] || dircolors -p >~/.dir_colors
     eval `dircolors -b ~/.dir_colors`
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
 
 isgnu () {
