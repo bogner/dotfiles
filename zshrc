@@ -90,6 +90,9 @@ alias vncviewer='vncviewer -shared'
 alias et="emacsclient -t"
 alias ec="emacsclient -c"
 
+function extglob() { zsh -c "setopt extendedglob; $*" }
+alias extglob="noglob \extglob"
+
 export EDITOR="emacsclient -t -a emacs"
 export VISUAL=$EDITOR
 export PAGER="less"
