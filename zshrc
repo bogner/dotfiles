@@ -89,6 +89,7 @@ alias lpr="lpr -h"
 alias vncviewer='vncviewer -shared'
 alias et="emacsclient -t"
 alias ec="emacsclient -c"
+alias en="emacsclient -n"
 
 function extglob() { zsh -c "setopt extendedglob; $*" }
 alias extglob="noglob \extglob"

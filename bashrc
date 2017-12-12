@@ -134,6 +134,7 @@ alias lpr="lpr -h"
 alias vncviewer='vncviewer -shared'
 alias et="emacsclient -t"
 alias ec="emacsclient -c"
+alias en="emacsclient -n"
 
 export EDITOR="emacsclient -t -a emacs"
 export VISUAL=$EDITOR
