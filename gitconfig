@@ -23,7 +23,7 @@
 [browser "x-www-browser"]
     cmd = x-www-browser
 [alias]
-    current-branch = !git branch | awk '/\\*/ {print $2}'
+    current-branch = !git branch 2>/dev/null | awk '/\\*/ {print $2}'
     difftool = !sh -c 'git diff -U99 "$@" | kompare -o -' git-difftool
     graph = log --graph --format='%C(auto)%h%d %s %C(green)-- %an, %cr'
     ff = pull --ff-only
