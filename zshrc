@@ -17,7 +17,7 @@ _prompt='%F{blue}%#%f '
 
 PROMPT="${_err}${_user}${_host}${_jobs}${_trunc}${_cwd}${_prompt}"
 PROMPT2='%_%F{8}>%f '
-RPROMPT='%F{8}%D{%Y-%m-%d %H:%M:%S}%f'
+RPROMPT='%F{0}# %F{8}%D{%Y-%m-%d %H:%M:%S}%f'
 unset _err _user _host _jobs _trunc _cwd _prompt
 
 # update window titles
