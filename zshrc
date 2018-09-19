@@ -40,11 +40,13 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-prompt ''
 
 # configure history
-export HISTSIZE=500
+export HISTSIZE=10000
 export SAVEHIST=HISTSIZE
 export HISTFILE="$HOME/.zsh_history"
 setopt inc_append_history
 setopt hist_ignore_dups
+setopt hist_reduce_blanks
+setopt share_history
 
 # Fix up word-based movement commands
 autoload -U select-word-style
