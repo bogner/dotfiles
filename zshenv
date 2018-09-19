@@ -9,7 +9,7 @@ path=("$HOME/scripts" "$HOME/local/bin" $path)
     fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Add local fpaths
-prepend_fpaths=(~/.zshfunctions ~/.zshfunctions/*(-/) ~/scripts/completion/zsh)
+prepend_fpaths=(~/.zshfunctions ~/.zshfunctions/*(-/N) ~/scripts/completion/zsh)
 fpath=($prepend_fpaths $fpath)
 
 # Autoload everything in prepend_fpaths
