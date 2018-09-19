@@ -1,5 +1,12 @@
 # -*- Shell-script -*-
 
+if [[ $TERM == "dumb" ]]; then
+    # Fancy prompts and line editing isn't necessary on a dumb terminal, and it
+    # seems to confuse emacs's tramp-mode. Just turn off zle and bail early.
+    unsetopt zle
+    return
+fi
+
 # setup the prompt
 setopt prompt_subst
 
