@@ -1,0 +1,21 @@
+# Session to map spatially located terminals to ssh-able ones
+new-session -s terms
+new-session -t terms -s 1; new-window -n 1 -t 1
+new-session -t terms -s 2; new-window -n 2 -t 2
+new-session -t terms -s 3; new-window -n 3 -t 3
+new-session -t terms -s 4; new-window -n 4 -t 4
+new-session -t terms -s 5; new-window -n 5 -t 5
+new-session -t terms -s 6; new-window -n 6 -t 6
+new-session -t terms -s 7; new-window -n 7 -t 7
+
+# The emacs sessions happen to start at 8, so it's still easy to get
+# at the first two.
+new-session -t terms -s emacs-1; new-window -n emacs-1
+new-session -t terms -s emacs-2; new-window -n emacs-2
+new-session -t terms -s emacs-3; new-window -n emacs-3
+new-session -t terms -s emacs-4; new-window -n emacs-4
+
+new-session -t terms -s terms-1
+new-session -t terms -s terms-2
+new-session -t terms -s terms-3
+new-session -t terms -s terms-4

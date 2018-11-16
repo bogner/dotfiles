@@ -1,0 +1,22 @@
+# Multipane tmux session for nesting other sessions in
+
+# Set up some terms sessions that we'll nest into this one
+new-session -t terms -s multi-main; new-window -n multi-main
+new-session -t terms -s multi-1
+new-session -t terms -s multi-2
+
+# Now set up the multipane session
+new-session -s multipane "TMUX= tmux attach -tmulti-main"
+# Split the window into three panes - note that the order is bottom to top.
+split-window -d "TMUX= tmux attach -tmulti-2"
+split-window -d "TMUX= tmux attach -tmulti-1"
+set-option -t multipane remain-on-exit on
+set-option -t multipane main-pane-width 80
+select-layout -t multipane main-vertical
+
+# Configure the setup for nesting
+set-option -t multipane prefix None
+bind-key -n M-j select-pane -t {next}
+bind-key -n M-k select-pane -t {previous}
+bind-key -n F8 select-layout main-vertical
+bind-key -n F9 respawn-pane

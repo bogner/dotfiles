@@ -1,0 +1,2 @@
+# Session for irssi
+new -s irssi -n irssi irssi
