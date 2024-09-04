@@ -6,6 +6,7 @@
     ui = auto
 [core]
     whitespace = cr-at-eol
+    pager = git-gh-pager
 [diff]
     renames = copy
     colorMoved = plain
