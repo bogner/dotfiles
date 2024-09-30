@@ -6,7 +6,7 @@
     ui = auto
 [core]
     whitespace = cr-at-eol
-    pager = git-gh-pager
+    pager = type git-gh-pager >/dev/null 2>&1 && exec git-gh-pager || exec less
 [diff]
     renames = copy
     colorMoved = plain
