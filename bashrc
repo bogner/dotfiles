@@ -2,10 +2,16 @@
 
 ### This top part should be POSIX sh compatible, so that we can source
 ### it non-interactively and get our path
-shell="$(basename $(ps -p $$ -o command | sed '1d; s/^-//; s/ .*$//'))"
+shell="$(ps -p $$ -o command 2>/dev/null | sed '1d; s/^-//; s/ .*$//')"
+if [ -z "$shell" ]; then
+    # The above attempts to be portable, but if something goes wrong
+    # just give up and use "$0", which is usually fine.
+    shell="$0"
+fi
+shell="$(basename $shell)"
 
 prepend_path () {
-    local append newpath
+    local append newpath path
     if [ "$1" = -a ] || [ "$1" = --append ]; then
         append=true
         shift
